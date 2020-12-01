@@ -20,13 +20,9 @@ const myDischi = new Vue ({
 	},
 	methods: {
 		filterCds(){
-			this.filteredCds.splice(0,this.filteredCds.length);
-			for(let i=0; i<this.cds.length; i++){
-				if(this.cds[i].genre.toLowerCase()===this.selected){
-					this.filteredCds.push(this.cds[i]);
-				}
-
-			}
+			this.filteredCds=this.cds.filter((cd) => 
+				cd.genre.toLowerCase().includes(this.selected)
+			)
 		}
 	}		
 });
