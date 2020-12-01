@@ -16,13 +16,34 @@
         </header>
 
         <div id="root" class="cds-container container">
+            <!-- Select tramite genere -->
+            <select name="" id="" @change="filterCds" v-model="selected">
+                <option disabled value="">Please select one</option>
+                <option > </option>
+                <option >rock</option>
+                <option >pop</option>
+                <option >metal</option>
+                <option >jazz</option>
+            </select>
+
             <!-- Disco ad esempio -->
-            <div class="cd" v-for="cd in cds">
-                <img :src="cd.poster" alt="copertina album">
-                <h3>{{cd.title}}</h3>
-                <span class="author">{{cd.author}}</span>
-                <span class="year">{{cd.year}}</span>
-            </div>
+            <template v-if="selected.length === 0">
+                    <div class="cd" v-for="cd in cds">
+                        <img :src="cd.poster" alt="copertina album">
+                        <h3>{{cd.title}}</h3>
+                        <span class="author">{{cd.author}}</span>
+                        <span class="year">{{cd.year}}</span>
+                    </div>
+            </template>
+            <template v-else>
+                    <div class="cd" v-for="cd in filteredCds">
+                        <img :src="cd.poster" alt="copertina album">
+                        <h3>{{cd.title}}</h3>
+                        <span class="author">{{cd.author}}</span>
+                        <span class="year">{{cd.year}}</span>
+                    </div>
+            </template>
+            
         </div>
         
 
