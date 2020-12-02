@@ -1,6 +1,8 @@
+const genres = ['rock','pop','metal','jazz']
 const myDischi = new Vue ({
 	el:"#root",
 	data:{
+		genres: [...genres],
 		cds:[],
 		filteredCds:[],
 		selected: ""
